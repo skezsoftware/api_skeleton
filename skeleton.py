@@ -16,7 +16,7 @@ def add_item():
     data_store.append(item)
     return jsonify(item), 201
 
-@app.route('items/<int:index>', methods=['PUT'])
+@app.route('/items/<int:index>', methods=['PUT'])
 def update_item(index):
     if index < 0 or index >= len(data_store):
         return jsonify({"error": "Item not found"}), 404
@@ -26,7 +26,7 @@ def update_item(index):
     data_store[index] = updated_item
     return jsonify(updated_item), 200
 
-@app.rpoute('/items/<int:index>', methods=['DELETE'])
+@app.route('/items/<int:index>', methods=['DELETE'])
 def delete_item(index):
     if index < 0 or index >= len(data_store):
         return jsonify({"error": "Item not found"}), 404
